@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand" href="{{ path('home_index') }}"><img src="/assets/img/wild_circus_logo.png" alt="wild_circus_logo"></a>
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="{{ path('home_index') }}"><img class="logo" src="{{asset('/images/logo/wild_circus.png')}}" alt="wild_circus_logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -7,8 +7,8 @@
         <div class="navbar-nav">
             <a class="nav-item" href="{{ path('home_index') }}">Accueil</a>
             <a class="nav-item" href="{{ path('galerie_index') }}">Galerie</a>
-            <a class="nav-item" href="{{ path('events_index') }}">Spectacles</a>
-            <a class="nav-item" href="{{ path('contact_index') }}">Contact</a>
+            <a class="nav-item" href="{{ path('event_index') }}">Spectacles</a>
+            <a class="nav-item" href="{{ path('contact') }}">Contact</a>
         </div>
     </div>
 </nav>

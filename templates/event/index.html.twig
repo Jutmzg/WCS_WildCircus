@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Event index{% endblock %}
+{% block title %}Spectacles{% endblock %}
 
 {% block body %}
     <h1>Event index</h1>
@@ -8,8 +8,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Title</th>
+                <th>Spectacle</th>
                 <th>Type</th>
                 <th>Description</th>
                 <th>Place</th>
@@ -19,27 +18,26 @@
             </tr>
         </thead>
         <tbody>
-        {% for event in events %}
-            <tr>
-                <td>{{ event.id }}</td>
-                <td>{{ event.title }}</td>
-                <td>{{ event.type }}</td>
-                <td>{{ event.description }}</td>
-                <td>{{ event.place }}</td>
-                <td>{{ event.date ? event.date|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ event.img }}</td>
-                <td>
-                    <a href="{{ path('event_show', {'id': event.id}) }}">show</a>
-                    <a href="{{ path('event_edit', {'id': event.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="8">no records found</td>
-            </tr>
-        {% endfor %}
+        <div class="card" style="width: 18rem;">
+            {% for event in events %}
+            <img src="..." class="card-img-top" alt="spectacle">
+            <div class="card-body">
+                <h5 class="card-title">{{ event.title }}</h5>
+                <p class="card-text">{{ event.description }}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{ event.type }}</li>
+                <li class="list-group-item">{{ event.date ? event.date|date('Y-m-d H:i:s') : '' }}</li>
+                <li class="list-group-item">{{ artist.name }}</li>
+            </ul>
+            <div class="card-body">
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+            </div>
+            {% endfor %}
+        </div>
         </tbody>
     </table>
 
-    <a href="{{ path('event_new') }}">Create new</a>
+    <a href="{{ path('event_new') }}">Nouveau spectacle</a>
 {% endblock %}

@@ -4,18 +4,27 @@ body {
   nav.navbar {
     background-color: #6CBEED;
 
-    a {
-      color: #272932;
-      margin-left: 10%;
-      text-decoration: none;
+    #navbarNavAltMarkup {
+      margin-top: 5%;
+      margin-left: 5%;
+    }
 
-      .nav-item:hover{
-        color: #BD9391;
-      }
+    a.nav-item {
+      color: #272932;
+      text-decoration: none;
+      margin-right: 20%;
+    }
+
+    a:hover {
+      color: #BD9391;
+    }
+
+    img.logo {
+      margin-bottom: -13px;
     }
   }
 
-  h1{
+  h1 {
     color: #272932;
   }
 }
