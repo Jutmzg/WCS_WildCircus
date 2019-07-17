@@ -3,35 +3,26 @@
 {% block title %}Galerie{% endblock %}
 
 {% block body %}
-    <h1>Artist index</h1>
+    <h1>Galerie</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Job</th>
-                <th>Description</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for artist in artists %}
-            <tr>
-                <td>dd({{ artist.name }});</td>
-                <td>{{ artist.job }}</td>
-                <td>{{ artist.description }}</td>
-                <td>
-                    <a href="{{ path('artist_show', {'id': artist.id}) }}">show</a>
-                    <a href="{{ path('artist_edit', {'id': artist.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">Pas de résultats trouvés</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="container">
+        {% if is_granted('ROLE_ADMIN') %}
+        <a href="{#{ path('artist_new') }#}">Nouvelle artiste</a>
+        {% endif %}
+        <div class="card" style="width: 18rem;">
+            {% for artist in artists %}
+                <img src="{{ asset('/public/images/Artistes/~artist.img') }}" class="card-img-top" alt="artiste">
+                <div class="card-body">
+                    <h5 class="card-title">{{ artist.name }} - {{ artist.job }}</h5>
+                    <p class="card-text">{{ artist.description }}</p>
+                    <a href="{{ path('galerie_show', {'id': artist.id}) }}">Voir</a>
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{#{ path('artist_edit', {'id': artist.id}) }#}">Modifier</a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 
-    <a href="{{ path('artist_new') }}">Nouvel.le artiste</a>
+
 {% endblock %}

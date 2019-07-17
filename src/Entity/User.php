@@ -22,7 +22,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
-    private $name;
+    private $email;
 
     /**
      * @ORM\Column(type="json")
@@ -36,12 +36,8 @@ class User implements UserInterface
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $email;
-
-    /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Event", mappedBy="user")
+     * @var $events
      */
     private $events;
 
@@ -55,14 +51,14 @@ class User implements UserInterface
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getEmail(): ?string
     {
-        return $this->name;
+        return $this->email;
     }
 
-    public function setName(string $name): self
+    public function setEmail(string $email): self
     {
-        $this->name = $name;
+        $this->email = $email;
 
         return $this;
     }
@@ -74,7 +70,7 @@ class User implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->name;
+        return (string) $this->email;
     }
 
     /**
@@ -128,18 +124,6 @@ class User implements UserInterface
         // $this->plainPassword = null;
     }
 
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Event[]
      */
@@ -152,7 +136,7 @@ class User implements UserInterface
     {
         if (!$this->events->contains($event)) {
             $this->events[] = $event;
-            $event->addUser($this);
+            $event->addEvent($this);
         }
 
         return $this;
@@ -162,7 +146,7 @@ class User implements UserInterface
     {
         if ($this->events->contains($event)) {
             $this->events->removeElement($event);
-            $event->removeUser($this);
+            $event->removeEvent($this);
         }
 
         return $this;

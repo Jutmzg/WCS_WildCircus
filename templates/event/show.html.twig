@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Event{% endblock %}
+{% block title %}Spectacle {{ event.title }}{% endblock %}
 
 {% block body %}
-    <h1>Event</h1>
+    <h1>Spectacle - {{ event.title }}</h1>
 
     <table class="table">
         <tbody>
@@ -38,9 +38,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('event_index') }}">back to list</a>
-
-    <a href="{{ path('event_edit', {'id': event.id}) }}">edit</a>
-
+    <a href="{{ path('event_index') }}">Liste des spectacles</a>
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('event_edit', {'id': event.id}) }}">Modifier</a>
     {{ include('event/_delete_form.html.twig') }}
+    {% endif %}
 {% endblock %}

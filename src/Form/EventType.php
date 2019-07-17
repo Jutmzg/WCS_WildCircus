@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Artist;
 use App\Entity\Event;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -19,6 +21,7 @@ class EventType extends AbstractType
             ->add('date')
             ->add('img')
             ->add('artist')
+            //'choice_label' => function ($artist){return $artist->}])
             ->add('user')
         ;
     }
