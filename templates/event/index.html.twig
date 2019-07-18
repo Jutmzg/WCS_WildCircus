@@ -10,9 +10,9 @@
         {% if is_granted('ROLE_ADMIN') %}
         <a href="{{ path('event_new') }}">Nouveau spectacle</a>
         {% endif %}
-        <div class="card" style="width: 18rem;">
+        <div class="row">
             {% for event in events %}
-                <img src="{{ asset('/public/images/Spectacles/~event.img') }}" class="card-img-top" alt="spectacle">
+                <img src="{{ asset('images/Spectacles/'~event.img) }}" class="card-img-top" alt="spectacle">
                 <div class="card-body">
                     <h5 class="card-title">{{ event.title }}</h5>
                     <p class="card-text">{{ event.description }}</p>
