@@ -7,40 +7,23 @@
 
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ event.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ event.title }}</td>
-            </tr>
-            <tr>
-                <th>Type</th>
-                <td>{{ event.type }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ event.description }}</td>
-            </tr>
-            <tr>
-                <th>Place</th>
-                <td>{{ event.place }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{{ event.date ? event.date|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Img</th>
-                <td>{{ event.img }}</td>
-            </tr>
+        <tr>
+            <th><img src="{{ asset('images/Spectacles/'~event.img) }}" class="card-img-top" alt="spectacle"></th>
+            <td>{{ event.title }}
+                <br>
+                {{ event.description }}</td>
+        </tr>
         </tbody>
     </table>
-
-    <a href="{{ path('event_index') }}">Liste des spectacles</a>
+    <div>
+        <a href="{{ path('event_index') }}">Liste des spectacles</a>
+    </div>
     {% if is_granted('ROLE_ADMIN') %}
-    <a href="{{ path('event_edit', {'id': event.id}) }}">Modifier</a>
-    {{ include('event/_delete_form.html.twig') }}
+        <div>
+            <a href="{{ path('event_edit', {'id': event.id}) }}">Modifier</a>
+        </div>
+        <div>
+            <a href="{{ include('event/_delete_form.html.twig') }}">Supprimer</a>
+        </div>
     {% endif %}
 {% endblock %}

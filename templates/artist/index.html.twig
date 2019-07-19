@@ -7,18 +7,18 @@
         <h1>Galerie</h1>
 
         {% if is_granted('ROLE_ADMIN') %}
-            <a href="{#{ path('artist_new') }#}">Nouvel artiste</a>
+            <a href="{{ path('galerie_new') }}" class="lien">Nouvel artiste</a>
         {% endif %}
-        <div class="row">
+        <div class="card-group carte row">
             {% for artist in artists %}
-                <div class="card-horizontal galerie" style="width: 18rem;">
-                    <img src="{{ asset('images/Artistes/'~artist.img) }}" class="card-img-top" alt="artiste">
-                    <div class="card-body col-sm-6 artists">
-                        <h5 class="card-title">{{ artist.name }} - {{ artist.job }}</h5>
+                <div class="card col-4 galerie">
+                        <img src="{{ asset('images/Artistes/'~artist.img) }}" class="card-img-top artist" alt="artiste">
+                    <div class="card-body col-11 artists">
+                        <h5>{{ artist.name }} - {{ artist.job }}</h5>
                         <p class="card-text">{{ artist.description }}</p>
-                        <a href="{{ path('galerie_show', {'id': artist.id}) }}">Voir</a>
+                        <a href="{{ path('galerie_show', {'id': artist.id}) }}" class="lien">Voir</a>
                         {% if is_granted('ROLE_ADMIN') %}
-                            <a href="{{ path('galerie_edit', {'id': artist.id}) }}">Modifier</a>
+                            <a href="{{ path('galerie_edit', {'id': artist.id}) }}" class="lien">Modifier</a>
                         {% endif %}
                     </div>
                 </div>

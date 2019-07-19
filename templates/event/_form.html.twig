@@ -1,4 +1,9 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_row(form.artist, { 'label': 'Artistes' }) }}
+    {{ form_row(form.title, { 'label': 'Titre' }) }}
+    {{ form_row(form.type, { 'label': 'Type' }) }}
+    {{ form_row(form.description, { 'label': 'Description' }) }}
+    {{ form_row(form.place, { 'label': 'Lieu' }) }}
+    {{ form_row(form.date, { 'label': 'Date' }) }}
+<button class="btn">{{ button_label|default('Enregistrer') }}</button>
 {{ form_end(form) }}

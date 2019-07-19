@@ -7,7 +7,7 @@
         <h1>Contactez-nous</h1>
 
         <div class="row">
-            <div class="form-group col-md-6 col-12">
+            <div class="form-group col-md-6 contact">
                 {{ include('contact/_form.html.twig', {'button_label': 'Envoyer'}) }}
                 {% for category, messages in app.flashes %}
                     {% for message in messages %}
@@ -17,13 +17,18 @@
                     {% endfor %}
                 {% endfor %}
             </div>
-
-            <div class="col-md-3 col-12">
+            <div class="col-md-6 carte">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2829.0300007762166!2d-0.5630998847947718!3d44.841322382809395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd55262da405554f%3A0x5a26a7039ce944d6!2s9+All%C3%A9e+Serr%2C+33072+Bordeaux!5e0!3m2!1sfr!2sfr!4v1563293117039!5m2!1sfr!2sfr"
-                        width="auto" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
-                Wild Circus
-                9 Allée Serr 33000 BORDEAUX
-                06.86.58.12.33
+                        width="100%" height="auto" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <div class="img-logo-contact">
+                    <img src="{{ asset('/images/logo/wild_circus_logo.png') }}" alt="wild circus">
+                </div>
+                <div class="img-logo-contact">
+                    9 Allée Serr 33000 BORDEAUX
+                </div>
+                <div class="img-logo-contact">
+                    06.86.58.12.33
+                </div>
             </div>
         </div>
     </div>

@@ -1,7 +1,14 @@
 .deco {
+  display: flex;
   justify-content: center;
 }
 
 a.spectacle {
   color: #FFFFFF;
+}
+
+img.accueil {
+  margin-top: 3%;
+  width: 100%;
+  border: solid 2px #272932;
 }

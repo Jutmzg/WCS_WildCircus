@@ -1,6 +1,8 @@
-.card .galerie {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 40%;
+.card.galerie {
+  margin-top: 5%;
+}
+
+img.artist {
+  max-width: 100%;
+  height: auto;
 }
