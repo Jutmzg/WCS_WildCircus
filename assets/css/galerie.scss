@@ -1,5 +1,6 @@
 .card.galerie {
-  margin-top: 5%;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 img.artist {
